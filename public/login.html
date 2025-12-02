@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>log in - upzload</title>
+</head>
+<body>
+  <header>
+    <h1>log in</h1>
+    <p>log in to access your files!</p>
+  </header>
+
+  <main>
+    <form action="/login" method="POST">
+      <input type="text" name="username" placeholder="username" required>
+      <br><br>
+      <input type="password" name="password" placeholder="password" required>
+      <br><br>
+      <button type="submit">log in</button>
+    </form>
+
+    <br>
+    <a href="signup.html">don't have an account? sign up!</a>
+    <br><br>
+    <button onclick="window.location.href='/'">back</button>
+  </main>
+</body>
+</html>

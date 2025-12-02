@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>upzload - your files</title>
+</head>
+<body>
+  <header>
+    <h1>upzload</h1>
+    <p>welcome! upload and manage your files securely.</p>
+    <button id="logoutBtn">log out</button>
+  </header>
+
+  <main>
+    <h2>your files</h2>
+    <ul id="fileList"></ul>
+
+    <h3>upload a file</h3>
+    <form id="uploadForm" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" required />
+      <button type="submit">upload</button>
+    </form>
+  </main>
+
+  <script>
+    async function fetchFiles() {
+      const res = await fetch('/api/files');
+      const files = await res.json();
+      const list = document.getElementById('fileList');
+      list.innerHTML = '';
+      files.forEach(f => {
+        const li = document.createElement('li');
+        li.textContent = f.name.toLowerCase();
+        list.appendChild(li);
+      });
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      window.location.href = '/logout';
+    });
+
+    document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData
+      });
+      if (res.ok) {
+        alert('file uploaded!');
+        fetchFiles();
+      } else {
+        alert('upload failed.');
+      }
+    });
+
+    fetchFiles();
+  </script>
+</body>
+</html>

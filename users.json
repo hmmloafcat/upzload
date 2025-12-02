@@ -1,0 +1,11 @@
+{
+  "derickpedrosa": {
+    "password_hash": "$2b$10$n0/Ayq3NnaiQcWgl9wuVD.WZ1fwpGGWh6zvhNQ4EvoxEJmwLPMw5."
+  },
+  "testaccountbyderick": {
+    "password_hash": "$2b$10$fVPqCQ3x5Co1GExpSRBicep.86oTG3CJP3N4EWkSwim6MCnyBGBiW"
+  },
+  "testaccountbyderick2": {
+    "password_hash": "$2b$10$92aX4KFSt.MWMbZgLc9RCuVILCU0FHQcNjlnwD6K6fNGDsu6u2B12"
+  }
+}
